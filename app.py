@@ -1,7 +1,9 @@
 from flask import Flask, send_from_directory
+from flask_cors import CORS
 from api.extensions import cfg
 
 app = Flask(__name__, static_folder='client/build', static_url_path='/')
+CORS(app)
 
 def register_blueprints(app):
     pass
