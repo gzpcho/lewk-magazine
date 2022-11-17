@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from api.extensions import cfg
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='client/build', static_url_path='/')
 
 def register_blueprints(app):
     pass
@@ -16,4 +16,4 @@ register_blueprints(app)
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
-    return "Hello World!"
+    return send_from_directory(app.static_folder, 'index.html')
