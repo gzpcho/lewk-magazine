@@ -18,3 +18,7 @@ npm install
 3. Set environment variables
 4. Create a build - `npm run build`
 5. Serve the app - `flask run`
+
+## API
+* GET `api/articles`
+  * Returns a list of all Article
