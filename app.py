@@ -2,6 +2,7 @@ from flask import Flask, send_from_directory
 from flask_cors import CORS
 from api.blueprints import articles
 from api.extensions import db, cfg
+from api.data import dummy_articles
 
 app = Flask(__name__, static_folder='client/build', static_url_path='/')
 CORS(app)
@@ -16,6 +17,9 @@ def register_extensions(app):
     with app.app_context():
         db.drop_all()
         db.create_all()
+        db.session.add(dummy_articles[0])
+        db.session.add(dummy_articles[1])
+        db.session.commit()
 
 register_extensions(app)
 register_blueprints(app)
