@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form';
+import articleService from '../services/articles';
 
 const AdminArticleForm = ({ setPreviewContents }) => {
-  const { register, handleSubmit, getValues } = useForm({
+  const { register, handleSubmit, getValues, reset } = useForm({
     defaultValues: {
       title: 'Wikipedia Page',
       tagline: 'Where information lives',
@@ -30,7 +31,14 @@ const AdminArticleForm = ({ setPreviewContents }) => {
     };
   };
 
-  const onSubmit = (values) => console.log(formatValues(values));
+  const onSubmit = (values) => {
+    const articleId = values.title
+      .replace(/[^a-zA-Z0-9 ]/g, '')
+      .replace(/\s+/g, '-')
+      .toLowerCase();
+    articleService.post(articleId, formatValues(values));
+    reset();
+  };
 
   return (
     <form

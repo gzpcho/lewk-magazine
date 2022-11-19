@@ -1,5 +1,6 @@
-from flask import Blueprint, make_response, jsonify
+from flask import Blueprint, make_response, jsonify, request
 from ..models import Article
+from ..extensions import db
 
 bp = Blueprint("articles", __name__, url_prefix="/api")
 
@@ -12,3 +13,22 @@ def get_articles():
 def get_article(article_id):
     article = Article.query.get_or_404(article_id).serialize()
     return make_response(jsonify(article), 200)
+
+@bp.route("article/<article_id>", methods=["POST"])
+def post_article(article_id):
+    try:
+        new_article = Article(
+            id=article_id,
+            title=request.json["title"],
+            tagline=request.json["tagline"],
+            copy=request.json["copy"],
+            image_url=request.json["image"]["url"],
+            author=request.json["author"],
+            issue_no=request.json["issue"]["number"],
+            issue_url=request.json["issue"]["url"],
+        )
+        db.session.add(new_article)
+        db.session.commit()
+    except KeyError as err:
+        return make_response(jsonify(err), 400)
+    return make_response(jsonify(new_article.serialize()), 200)
