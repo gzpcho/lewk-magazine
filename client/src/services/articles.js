@@ -17,7 +17,6 @@ const getArticle = async (articleId) => {
 };
 
 const postArticle = async (articleId, requestBody) => {
-  console.log(requestBody);
   return fetch(`${baseUrl}/${articleId}`, {
     method: 'POST',
     headers: {
@@ -26,7 +25,7 @@ const postArticle = async (articleId, requestBody) => {
     body: JSON.stringify(requestBody),
   })
     .then(handleErrors)
-    .then((response) => console.log(response))
+    .then((response) => response.json())
     .catch((err) => console.error(err));
 };
 
