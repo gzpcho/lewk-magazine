@@ -1,7 +1,10 @@
 import { useForm } from 'react-hook-form';
 import articleService from '../services/articles';
+import Article from './Article';
+import { useState } from 'react';
 
-const AdminArticleForm = ({ setPreviewContents }) => {
+const AdminArticleForm = () => {
+  const [previewContents, setPreviewContents] = useState({});
   const { register, handleSubmit, getValues, reset } = useForm({
     defaultValues: {
       title: 'Wikipedia Page',
@@ -41,35 +44,39 @@ const AdminArticleForm = ({ setPreviewContents }) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      autoComplete="off"
-      style={{ display: 'flex', flexDirection: 'column', gap: '1vh' }}
-    >
-      <input {...register('title')} placeholder="Article Title" />
-      <input {...register('tagline')} placeholder="Article Tagline" />
-      <input {...register('image')} type="file" accept="image/*" />
-      <input {...register('author')} placeholder="Author" />
-      <input
-        {...register('issueNo')}
-        type="number"
-        min="0"
-        placeholder="Issue Number"
-      />
-      <input
-        {...register('issueUrl')}
-        type="url"
-        pattern="https://.*"
-        placeholder="Issue URL: https://..."
-      />
-      <textarea {...register('copy')} placeholder="Article Content" />
-      <input
-        type="button"
-        value="Preview"
-        onClick={() => setPreviewContents(formatValues(getValues()))}
-      />
-      <input type="submit" value="Post Article" />
-    </form>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        autoComplete="off"
+        style={{ display: 'flex', flexDirection: 'column', gap: '1vh' }}
+      >
+        <input {...register('title')} placeholder="Article Title" />
+        <input {...register('tagline')} placeholder="Article Tagline" />
+        <input {...register('image')} type="file" accept="image/*" />
+        <input {...register('author')} placeholder="Author" />
+        <input
+          {...register('issueNo')}
+          type="number"
+          min="0"
+          placeholder="Issue Number"
+        />
+        <input
+          {...register('issueUrl')}
+          type="url"
+          pattern="https://.*"
+          placeholder="Issue URL: https://..."
+        />
+        <textarea {...register('copy')} placeholder="Article Content" />
+        <input
+          type="button"
+          value="Preview"
+          onClick={() => setPreviewContents(formatValues(getValues()))}
+        />
+        <input type="submit" value="Post Article" />
+      </form>
+
+      <Article {...previewContents} />
+    </div>
   );
 };
 
