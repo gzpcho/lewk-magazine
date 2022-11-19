@@ -1,4 +1,4 @@
-from .models import Article
+from api.models import Article
 
 dummy_articles = [
     Article(

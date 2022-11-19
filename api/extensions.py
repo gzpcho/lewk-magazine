@@ -1,6 +1,6 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
-from .config import DevelopmentConfig, ProductionConfig
+from api.config import DevelopmentConfig, ProductionConfig
 
 db = SQLAlchemy()
 

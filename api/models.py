@@ -1,4 +1,4 @@
-from .extensions import db
+from api.extensions import db
 
 class Article(db.Model):
     __tablename__ = "articles"
