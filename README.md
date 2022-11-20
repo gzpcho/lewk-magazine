@@ -20,5 +20,10 @@ npm install
 5. Serve the app - `flask run`
 
 ## API
-* GET `api/articles`
-  * Returns a list of all Article
+
+- GET `api/articles`
+  - Returns a list of all Article
+- GET `api/article/<article_id>`
+  - Returns a single article, queried by id
+- POST `api/article/<article_id>`
+  - Creates and returns a new article, based on JSON request
