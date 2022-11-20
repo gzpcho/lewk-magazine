@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory
 from flask_cors import CORS
 from api.blueprints import articles
-from api.extensions import db, cfg
+from api.extensions import db, jwt, cfg
 from api.data import dummy_articles
 
 app = Flask(__name__, static_folder='client/build', static_url_path='/')
@@ -20,6 +20,7 @@ def register_extensions(app):
         db.session.add(dummy_articles[0])
         db.session.add(dummy_articles[1])
         db.session.commit()
+    jwt.init_app(app)
 
 register_extensions(app)
 register_blueprints(app)
