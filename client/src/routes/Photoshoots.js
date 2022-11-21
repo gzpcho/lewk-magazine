@@ -1,5 +1,8 @@
+import GridLayout from '../components/GridLayout.js';
 export default function Photoshoots(){
     return(
-        <h1>Photoshoots page</h1>
+        <div>
+            <GridLayout />
+        </div>
     );
 }
