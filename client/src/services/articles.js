@@ -2,8 +2,9 @@ import { handleErrors } from './utils.js';
 
 const baseUrl = '/api/article';
 
-const getAllArticles = async () => {
-  return fetch('/api/articles')
+const getAllArticles = async (params = {}) => {
+  const urlParams = '?' + new URLSearchParams(params).toString();
+  return fetch('/api/articles' + urlParams)
     .then(handleErrors)
     .then((response) => response.json())
     .catch((err) => console.error(err));

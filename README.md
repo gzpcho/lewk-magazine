@@ -27,3 +27,5 @@ npm install
   - Returns a single article, queried by id
 - POST `api/article/<article_id>`
   - Creates and returns a new article, based on JSON request
+- DELETE `api/article/<article_id>`
+  - Deletes an article given an article id

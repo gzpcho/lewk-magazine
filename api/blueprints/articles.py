@@ -6,7 +6,11 @@ bp = Blueprint("articles", __name__, url_prefix="/api")
 
 @bp.route("/articles")
 def get_articles():
-    article_list = [ a.serialize() for a in Article.query.all() ]
+    articles = Article.query
+    issue = request.args.get("issue")
+    if issue is not None:
+        articles = articles.filter_by(issue_no=request.args.get("issue"))
+    article_list = [ a.serialize() for a in articles.all()]
     return make_response(jsonify(article_list), 200)
 
 @bp.route("/article/<article_id>")
@@ -32,3 +36,13 @@ def post_article(article_id):
     except KeyError as err:
         return make_response(jsonify(err), 400)
     return make_response(jsonify(new_article.serialize()), 200)
+
+@bp.route("/article/<article_id>", methods=["DELETE"])
+def delete_article(article_id):
+    try:
+        article = Article.query.filter_by(id=article_id).one()
+        db.session.delete(article)
+        db.session.commit()
+    except:
+        return make_response(jsonify({"msg": "Article not found."}, 401))
+    return make_response(jsonify({"msg": "Article deleted successfully."}, 200))
