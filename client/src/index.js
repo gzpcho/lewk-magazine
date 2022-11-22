@@ -9,6 +9,7 @@ import HomePage from './routes/HomePage';
 import ArticlesPage from './routes/ArticlesPage';
 import Navbar from './components/Navbar';
 import AboutPage from './routes/AboutPage';
+import AdminPage from './routes/AdminPage';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: '/photoshoots',
     element: <PhotoshootsPage />,
+  },
+  {
+    path: '/admin',
+    element: <AdminPage />,
   },
 ]);
 
