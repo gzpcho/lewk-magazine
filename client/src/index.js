@@ -7,7 +7,6 @@ import './index.css';
 import PhotoshootsPage from './routes/PhotoshootsPage';
 import HomePage from './routes/HomePage';
 import ArticlesPage from './routes/ArticlesPage';
-import Navbar from './components/Navbar';
 import AboutPage from './routes/AboutPage';
 import AdminPage from './routes/AdminPage';
 
@@ -36,7 +35,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Navbar />
     <RouterProvider router={router} />
   </React.StrictMode>
 );

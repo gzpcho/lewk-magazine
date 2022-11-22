@@ -1,5 +1,12 @@
+import Navbar from '../components/Navbar';
+
 const ArticlesPage = () => {
-  return <h1>Blogs + Articles Page</h1>;
+  return (
+    <>
+      <Navbar />
+      <h1>Blogs + Articles Page</h1>
+    </>
+  );
 };
 
 export default ArticlesPage;

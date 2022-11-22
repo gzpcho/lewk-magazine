@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import AdminArticleForm from '../components/AdminArticleForm';
 import AdminPhotoshootForm from '../components/AdminPhotoshootForm';
+import Navbar from '../components/Navbar';
 
 const AdminPage = () => {
   const [formType, setFormType] = useState('article');
 
   return (
     <>
+      <Navbar />
       <button
         onClick={() => setFormType('article')}
         disabled={formType === 'article'}
