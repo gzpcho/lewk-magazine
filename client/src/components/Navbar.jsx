@@ -1,4 +1,4 @@
-export default function Navbar() {
+const Navbar = () => {
   return (
     <nav className="nav">
       <a href="/" className="site-title">
@@ -17,4 +17,6 @@ export default function Navbar() {
       </ul>
     </nav>
   );
-}
+};
+
+export default Navbar;
