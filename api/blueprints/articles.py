@@ -6,7 +6,11 @@ bp = Blueprint("articles", __name__, url_prefix="/api")
 
 @bp.route("/articles")
 def get_articles():
-    article_list = [ a.serialize() for a in Article.query.all() ]
+    articles = Article.query
+    issue = request.args.get("issue")
+    if issue is not None:
+        articles = articles.filter_by(issue_no=request.args.get("issue"))
+    article_list = [ a.serialize() for a in articles.all()]
     return make_response(jsonify(article_list), 200)
 
 @bp.route("/article/<article_id>")
