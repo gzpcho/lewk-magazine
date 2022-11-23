@@ -1,13 +1,15 @@
 import { useForm } from 'react-hook-form';
 import articleService from '../services/articles';
+import bucketService from '../services/bucket';
 import Article from './Article';
 import { useState } from 'react';
 
 const AdminArticleForm = () => {
+  const [loading, setLoading] = useState(false);
   const [previewContents, setPreviewContents] = useState({});
   const { register, handleSubmit, getValues, reset } = useForm({
     defaultValues: {
-      title: 'Wikipedia Page',
+      title: 'Wikipedia Page 2',
       tagline: 'Where information lives',
       image: null,
       author: 'Jimmy Wales',
@@ -17,30 +19,28 @@ const AdminArticleForm = () => {
     },
   });
 
-  const formatValues = (values) => {
-    return {
+  const onSubmit = async (values) => {
+    setLoading(true);
+    const uploadedImage = await bucketService.uploadImage(values.image[0]);
+    const uploadedImageJson = await uploadedImage.json();
+
+    const articleId = values.title
+      .replace(/[^a-zA-Z0-9 ]/g, '')
+      .replace(/\s+/g, '-')
+      .toLowerCase();
+    await articleService.post(articleId, {
       title: values.title,
       tagline: values.tagline,
-      image: values.image &&
-        values.image.length && {
-          url: URL.createObjectURL(values.image[0]),
-        },
+      image: uploadedImageJson,
       author: values.author,
       issue: {
         number: values.issueNo,
         url: values.issueUrl,
       },
       copy: values.copy,
-    };
-  };
-
-  const onSubmit = (values) => {
-    const articleId = values.title
-      .replace(/[^a-zA-Z0-9 ]/g, '')
-      .replace(/\s+/g, '-')
-      .toLowerCase();
-    articleService.post(articleId, formatValues(values));
+    });
     reset();
+    setLoading(false);
   };
 
   return (
@@ -70,9 +70,25 @@ const AdminArticleForm = () => {
         <input
           type="button"
           value="Preview"
-          onClick={() => setPreviewContents(formatValues(getValues()))}
+          onClick={() => {
+            const values = getValues();
+            setPreviewContents({
+              title: values.title,
+              tagline: values.tagline,
+              image: {
+                url: URL.createObjectURL(values.image[0]),
+              },
+              author: values.author,
+              issue: {
+                number: values.issueNo,
+                url: values.issueUrl,
+              },
+              copy: values.copy,
+            });
+          }}
+          disabled={loading}
         />
-        <input type="submit" value="Post Article" />
+        <input type="submit" value="Post Article" disabled={loading} />
       </form>
 
       <Article {...previewContents} />
