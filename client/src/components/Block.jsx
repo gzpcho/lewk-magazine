@@ -1,11 +1,9 @@
-import React from 'react';
+//to be done later: get article / photoshoot pics to populate the grid template
 function Block(props) {
     return(
-        <div style={{
-            ...styles.block,
-            ...styles[props.size]
-        }}>
-        </div>
+        <div style={{...styles.block,
+            ...styles[props.size]}}>
+            </div>
     )
 }
 const styles = {
@@ -13,7 +11,7 @@ const styles = {
         margin: '15px 10px',
         padding: 0,
         borderRadius: '16px',
-        backgroundColor: 'red'
+        backgroundColor: 'blue'
     },
     small: {
         gridRowEnd: 'span 26'

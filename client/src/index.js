@@ -1,38 +1,36 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
+import './index.css'; 
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import "./styles.css";
-import { createBrowserRouter,
-        RouterProvider,
-      } from "react-router-dom";
-import "./index.css";
-import Photoshootspage from "./routes/Photoshoots";
-import Homepage from "./routes/Home";
-import Blogspage from "./routes/Blogs";
-import Navbar from "./components/Navbar"
-import Aboutpage from "./routes/About";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+//Routes to the different pages
+import PhotoshootsPage from './routes/PhotoshootsPage';
+import HomePage from './routes/HomePage';
+import ArticlesPage from './routes/ArticlesPage';
+import AboutPage from './routes/AboutPage';
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Homepage />
+    path: '/',
+    element: <HomePage />,
   },
   {
-    path: "/about",
-    element: <Aboutpage />,
+    path: '/about',
+    element: <AboutPage />,
   },
   {
-    path: "/blogs",
-    element: <Blogspage />,
+    path: '/articles',
+    element: <ArticlesPage />,
   },
   {
-    path: "/photoshoots",
-    element: <Photoshootspage />,
+    path: '/photoshoots',
+    element: <PhotoshootsPage />,
   },
 ]);
-ReactDOM.createRoot(document.getElementById("root")).render(
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Navbar />
     <RouterProvider router={router} />
   </React.StrictMode>
 );
