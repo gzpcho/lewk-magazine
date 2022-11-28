@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../styles/nav_styles.css';
 
-const Navbar = () => {
+const Header = () => {
   return (
     <nav className="nav">
       <Link to="/">LEWK</Link>
@@ -20,5 +20,4 @@ const Navbar = () => {
   );
 };
 
-
-export default Navbar;
+export default Header;

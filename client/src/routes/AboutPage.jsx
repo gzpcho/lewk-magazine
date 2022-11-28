@@ -1,13 +1,12 @@
-import Navbar from "../components/Navbar";
+import Header from '../components/Header';
 
 const AboutPage = () => {
   return (
     <>
-      <Navbar />
+      <Header />
       <h1>About</h1>
     </>
   );
 };
 
 export default AboutPage;
-

@@ -1,10 +1,10 @@
-import Navbar from '../components/Navbar';
-import Footer from "../components/Footer";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const ArticlesPage = () => {
   return (
     <>
-      <Navbar />
+      <Header />
       <h1>Blogs + Articles Page</h1>
       <Footer />
     </>
@@ -12,4 +12,3 @@ const ArticlesPage = () => {
 };
 
 export default ArticlesPage;
-

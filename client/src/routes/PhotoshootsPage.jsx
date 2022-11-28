@@ -1,11 +1,11 @@
-import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 //import GridLayout from '../components/GridLayout';
 //import Footer from "../components/Footer";
-import Footer from "../components/Footer";
+import Footer from '../components/Footer';
 const PhotoshootsPage = () => {
   return (
     <div>
-      <Navbar />
+      <Header />
       <Footer />
     </div>
   );
