@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
-import linktreelogo from './images/linktree.png';
 
 const Footer = () => {
     return <footer>
@@ -9,7 +8,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faInstagram} />
             </a>
             <a href="https://linktr.ee">
-                <img src={linktreelogo} alt='linktreelogo' />
+                <img src="/images/linktree.png" alt='linktree logo' />
             </a>
             <a href="http://tiktok.com">
                 <FontAwesomeIcon icon={faTiktok} />
