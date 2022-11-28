@@ -1,15 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
+import './index.css'; 
+import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
+import AdminPage from './routes/AdminPage';
+
+//Routes to the different pages
 import PhotoshootsPage from './routes/PhotoshootsPage';
 import HomePage from './routes/HomePage';
 import ArticlesPage from './routes/ArticlesPage';
 import AboutPage from './routes/AboutPage';
-import AdminPage from './routes/AdminPage';
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -26,10 +27,7 @@ const router = createBrowserRouter([
   {
     path: '/photoshoots',
     element: <PhotoshootsPage />,
-  },
-  {
-    path: '/admin',
-    element: <AdminPage />,
+
   },
 ]);
 

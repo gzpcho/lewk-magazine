@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import AdminArticleForm from '../components/AdminArticleForm';
-import AdminPhotoshootForm from '../components/AdminPhotoshootForm';
+import AdminArticleForm from '../components/AdminArticleForm.jsx';
+import AdminPhotoshootForm from '../components/AdminPhotoshootForm.jsx';
+
 import Navbar from '../components/Navbar';
 
 const AdminPage = () => {

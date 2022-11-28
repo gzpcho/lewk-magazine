@@ -1,0 +1,17 @@
+.cell {
+    margin: 15px 10px;
+    padding: 0;
+    border-radius: 16px;
+    background-color: green;
+}
+.small {
+    grid-row-end: span 26;
+}
+  
+.medium {
+    grid-row-end: span 33;
+}
+  
+.large {
+    grid-row-end: span 45;
+}

@@ -1,12 +1,10 @@
-import Navbar from '../components/Navbar';
-
-const HomePage = () => {
-  return (
-    <>
-      <Navbar />
-      <h1>Home</h1>
-    </>
-  );
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+export default function Home(){
+    return(
+        <div>
+        <Navbar />
+        <Footer />
+        </div>
+    );
 };
-
-export default HomePage;
