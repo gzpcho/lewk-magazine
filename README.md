@@ -4,7 +4,7 @@ Repository link: https://github.com/gzpcho/lewk-magazine/
 
 Proposal link: https://docs.google.com/document/d/1um7Rd_2TMjUW7sKk7O05o2Y-wvjsLuL26LcdOiKL0eA/edit?usp=sharing
 
-Deployment link:
+Deployment link: https://lewk-magazine-txst.fly.dev
 
 Created by:
 Ian (@gzpcho) and Noah (@n0z0a)
