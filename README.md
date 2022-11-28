@@ -12,8 +12,12 @@ Ian (@gzpcho) and Noah (@n0z0a)
 Example PRs:
 
 - @gzpcho
+  - https://github.com/gzpcho/lewk-magazine/pull/3
+  - https://github.com/gzpcho/lewk-magazine/pull/4
 
 - @n0z0a
+  - https://github.com/gzpcho/lewk-magazine/pull/2
+  - https://github.com/gzpcho/lewk-magazine/pull/6
 
 Technical requirements met:
 - React client
