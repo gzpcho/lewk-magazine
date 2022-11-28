@@ -75,13 +75,14 @@ const AdminArticleForm = () => {
             setPreviewContents({
               title: values.title,
               tagline: values.tagline,
-              image: {
-                url: URL.createObjectURL(values.image[0]),
-              },
-              author: values.author,
-              issue: {
-                number: values.issueNo,
-                url: values.issueUrl,
+              imageUrl:
+                values.image && values.image.length
+                  ? URL.createObjectURL(values.image[0])
+                  : null,
+              metadata: {
+                author: values.author,
+                issueNo: values.issueNo,
+                issueUrl: values.issueUrl,
               },
               copy: values.copy,
             });

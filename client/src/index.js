@@ -11,6 +11,8 @@ import PhotoshootsPage from './routes/PhotoshootsPage';
 import HomePage from './routes/HomePage';
 import ArticlesPage from './routes/ArticlesPage';
 import AboutPage from './routes/AboutPage';
+import ArticleContentPage from './routes/ArticleContentPage';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -27,7 +29,14 @@ const router = createBrowserRouter([
   {
     path: '/photoshoots',
     element: <PhotoshootsPage />,
-
+  },
+  {
+    path: '/a/:articleId',
+    element: <ArticleContentPage />,
+  },
+  {
+    path: '/admin',
+    element: <AdminPage />,
   },
 ]);
 
