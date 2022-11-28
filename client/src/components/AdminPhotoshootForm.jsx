@@ -1,9 +1,32 @@
 import { useForm } from 'react-hook-form';
+import bucketService from '../services/bucket';
+import photoshootService from '../services/photoshoot';
 
 const AdminPhotoshootForm = () => {
   const { register, handleSubmit } = useForm({});
 
-  const onSubmit = (values) => console.log(values);
+  const onSubmit = async (values) => {
+    const photoshootId = values.title
+      .replace(/[^a-zA-Z0-9 ]/g, '')
+      .replace(/\s+/g, '-')
+      .toLowerCase();
+
+    const numFiles = values.photos.length;
+    const imageUrls = [];
+    await Promise.all(
+      [...Array(numFiles)].map(async (_, idx) => {
+        const uploadedImage = await bucketService.uploadImage(
+          values.photos[idx]
+        );
+        const uploadedImageJson = await uploadedImage.json();
+        imageUrls.push(uploadedImageJson.url);
+      })
+    );
+    await photoshootService.post(photoshootId, {
+      title: values.title,
+      imageUrls,
+    });
+  };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>

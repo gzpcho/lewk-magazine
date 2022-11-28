@@ -1,4 +1,4 @@
-from api.models import Article
+from api.models import Article, Photoshoot
 
 dummy_articles = [
     Article(
@@ -21,4 +21,16 @@ dummy_articles = [
         issue_no=1,
         issue_url="https://www.wikipedia.com/",
     ),
+]
+
+dummy_photoshoots = [
+    Photoshoot(
+        id="a-photoshoot",
+        title="A Photoshoot",
+        photo_url_list=[
+            "https://via.placeholder.com/150",
+            "https://via.placeholder.com/75",
+            "https://via.placeholder.com/25"
+        ]
+    )
 ]
