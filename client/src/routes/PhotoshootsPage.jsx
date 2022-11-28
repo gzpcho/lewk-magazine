@@ -1,4 +1,3 @@
-
 import Navbar from '../components/Navbar';
 //import GridLayout from '../components/GridLayout';
 //import Footer from "../components/Footer";

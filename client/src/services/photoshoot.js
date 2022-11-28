@@ -1,24 +1,24 @@
 import { handleErrors } from './utils.js';
 
-const baseUrl = '/api/article';
+const baseUrl = '/api/photoshoot';
 
-const getAllArticles = async (params = {}) => {
+const getAllPhotoshoots = async (params = {}) => {
   const urlParams = '?' + new URLSearchParams(params).toString();
-  return fetch('/api/articles' + urlParams)
+  return fetch('/api/photoshoots' + urlParams)
     .then(handleErrors)
     .then((response) => response.json())
     .catch((err) => console.error(err));
 };
 
-const getArticle = async (articleId) => {
-  return fetch(`${baseUrl}/${articleId}`)
+const getPhotoshoot = async (photoshootId) => {
+  return fetch(`${baseUrl}/${photoshootId}`)
     .then(handleErrors)
     .then((response) => response.json())
     .catch((err) => console.error(err));
 };
 
-const postArticle = async (articleId, requestBody) => {
-  return fetch(`${baseUrl}/${articleId}`, {
+const postPhotoshoot = async (photoshootId, requestBody) => {
+  return fetch(`${baseUrl}/${photoshootId}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -30,10 +30,10 @@ const postArticle = async (articleId, requestBody) => {
     .catch((err) => console.error(err));
 };
 
-const articleService = {
-  getAll: getAllArticles,
-  get: getArticle,
-  post: postArticle,
+const photoshootService = {
+  getAll: getAllPhotoshoots,
+  get: getPhotoshoot,
+  post: postPhotoshoot,
 };
 
-export default articleService;
+export default photoshootService;

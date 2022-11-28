@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import Footer from "../components/Footer";
+
 const ArticlesPage = () => {
   return (
     <>
@@ -11,3 +12,4 @@ const ArticlesPage = () => {
 };
 
 export default ArticlesPage;
+

@@ -4,6 +4,7 @@ import './styles.css';
 import './index.css'; 
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AdminPage from './routes/AdminPage';
 
 //Routes to the different pages
 import PhotoshootsPage from './routes/PhotoshootsPage';
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   {
     path: '/photoshoots',
     element: <PhotoshootsPage />,
+
   },
 ]);
 
