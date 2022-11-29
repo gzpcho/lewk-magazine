@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
-import articleService from '../services/articles';
-import bucketService from '../services/bucket';
-import Article from './Article';
+import articleService from '../../services/articles';
+import bucketService from '../../services/bucket';
+import Article from '../ui/Article';
 import { useState } from 'react';
 
 const AdminArticleForm = () => {

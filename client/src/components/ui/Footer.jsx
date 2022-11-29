@@ -8,7 +8,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faInstagram} />
             </a>
             <a href="https://linktr.ee">
-                <img src="/images/linktree.png" alt='linktree logo' />
+                <img src  ="/images/linktree.png" alt='linktree logo' />
             </a>
             <a href="http://tiktok.com">
                 <FontAwesomeIcon icon={faTiktok} />

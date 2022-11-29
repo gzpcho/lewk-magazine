@@ -4,14 +4,14 @@ import './styles.css';
 import './index.css';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import AdminPage from './routes/AdminPage';
+import AdminPage from './pages/AdminPage';
 
 //Routes to the different pages
-import PhotoshootsPage from './routes/PhotoshootsPage';
-import HomePage from './routes/HomePage';
-import ArticlesPage from './routes/ArticlesPage';
-import AboutPage from './routes/AboutPage';
-import ArticleContentPage from './routes/ArticleContentPage';
+import PhotoshootsPage from './pages/PhotoshootsPage';
+import HomePage from './pages/HomePage';
+import ArticlesPage from './pages/ArticlesPage';
+import AboutPage from './pages/AboutPage';
+import ArticleContentPage from './pages/ArticleContentPage';
 
 const router = createBrowserRouter([
   {

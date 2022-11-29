@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import bucketService from '../services/bucket';
-import photoshootService from '../services/photoshoot';
+import bucketService from '../../services/bucket';
+import photoshootService from '../../services/photoshoot';
 
 const AdminPhotoshootForm = () => {
   const { register, handleSubmit } = useForm({});

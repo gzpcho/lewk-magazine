@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../styles/nav_styles.css';
+import '../../styles/nav_styles.css';
 
 const Header = () => {
   return (

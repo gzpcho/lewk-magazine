@@ -1,8 +1,8 @@
-import Header from '../components/Header';
+import Header from '../components/ui/Header';
 import articleService from '../services/articles';
 import { useEffect, useState } from 'react';
-import Article from '../components/Article';
-import Footer from '../components/Footer';
+import Article from '../components/ui/Article';
+import Footer from '../components/ui/Footer';
 import { useParams } from 'react-router-dom';
 
 const ArticleContentPage = () => {
