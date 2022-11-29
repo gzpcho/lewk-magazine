@@ -1,19 +1,9 @@
 import Block from "./Block.jsx";
-function GridLayout() {
+import Footer from "../components/Footer";
+function GridLayout(props) {
     return(
         <div style={styles.block_container}>
-            <Block size="small" />
-            <Block size="medium" />
-            <Block size="large" />
-            <Block size="small" />
-            <Block size="medium" />
-            <Block size="large" />
-            <Block size="small" />
-            <Block size="medium" />
-            <Block size="large" />
-            <Block size="small" />
-            <Block size="medium" />
-            <Block size="large" />
+            {props.children}
         </div>
     )
 }
@@ -30,7 +20,7 @@ const styles = {
         left: '50%',
         transform: 'translateX(-50%)',
         justifyContent: 'center',
-        backgroundColor: 'black'
+        backgroundColor: 'white'
     }
 }
 export default GridLayout;

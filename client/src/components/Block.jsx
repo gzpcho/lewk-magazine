@@ -3,7 +3,8 @@ function Block(props) {
     return(
         <div style={{...styles.block,
             ...styles[props.size]}}>
-            </div>
+                <img src={props.img_url} alt="image" />
+        </div>
     )
 }
 const styles = {
