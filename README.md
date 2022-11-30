@@ -24,8 +24,17 @@ Technical requirements met:
 - Flask server
 - REST API
 - User authentication
-- Beautification
 - Postgres database
+
+Stretch features:
+
+Is0ZBiBSWhCUogI
+Token authentication using FlaskJWT
+Token has lifetime and login-req operations can be completed during token’s lifetime, then once it expires user has to log in again
+
+DI0KbVnD8ITUuF9
+Storing images and resources on AWS S3
+Using these to send images over custom REST API
 
 ## Usage
 
@@ -69,7 +78,11 @@ npm install
 
 - @gzpcho
   - Likes
+    - Liked marrying different services/concepts together (S3, JWT Auth, Databases)
+    - Liked creating a real product that will hopefully be used by many people
   - Dislikes
+    - Disliked reading the AWS S3 documentation
+    - Wanted to set up tests for our API and components
 - @n0z0a
   - Likes
   - Dislikes
