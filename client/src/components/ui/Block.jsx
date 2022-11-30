@@ -3,18 +3,19 @@ function Block(props) {
   console.log(props);
 
   return(
-      <div style={{...styles.block,
-          ...styles[props.size]}}>
+      <div style={{...styles.block, ...styles[props.size]}}>
               <img src={props.src} alt="" />
       </div>
   )
 }
 const styles = {
   block: {
-      margin: '15px 10px',
+      margin: '10px 10px',
       padding: 0,
       borderRadius: '16px',
-      backgroundColor: 'blue'
+      backgroundColor: 'blue',
+      position: 'relative',
+      overflow: 'hidden'
   },
   small: {
       gridRowEnd: 'span 26'

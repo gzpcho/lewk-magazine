@@ -13,11 +13,11 @@ body {
     text-align: center;
 }
 footer{
-    background-color: gray;
-    position:absolute;
+    background-color: black;
     left:0;
     bottom:0;
     right:0;
+    position:fixed;
 }
 .site-title {
     font-size: 2rem;
