@@ -1,8 +1,8 @@
 import Header from '../components/ui/Header';
 import Footer from '../components/ui/Footer';
 import articleService from '../services/articles';
-import GridLayout from "../components/GridLayout";
-import Block from "../components/Block";
+import GridLayout from "../layouts/GridLayout";
+import Block from "../components/ui/Block";
 import { useState, useEffect } from 'react';
 const ArticlesPage = () => {
   const [gridContents, setGridContents] = useState([]);
