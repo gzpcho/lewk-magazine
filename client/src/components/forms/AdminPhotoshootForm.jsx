@@ -1,8 +1,10 @@
+import useToken from '../../hooks/useToken';
 import { useForm } from 'react-hook-form';
 import bucketService from '../../services/bucket';
 import photoshootService from '../../services/photoshoot';
 
 const AdminPhotoshootForm = () => {
+  const { token } = useToken();
   const { register, handleSubmit } = useForm({});
 
   const onSubmit = async (values) => {
@@ -16,16 +18,21 @@ const AdminPhotoshootForm = () => {
     await Promise.all(
       [...Array(numFiles)].map(async (_, idx) => {
         const uploadedImage = await bucketService.uploadImage(
-          values.photos[idx]
+          values.photos[idx],
+          token
         );
         const uploadedImageJson = await uploadedImage.json();
         imageUrls.push(uploadedImageJson.url);
       })
     );
-    await photoshootService.post(photoshootId, {
-      title: values.title,
-      imageUrls,
-    });
+    await photoshootService.post(
+      photoshootId,
+      {
+        title: values.title,
+        imageUrls,
+      },
+      token
+    );
   };
 
   return (

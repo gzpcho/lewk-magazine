@@ -17,10 +17,11 @@ const getArticle = async (articleId) => {
     .catch((err) => console.error(err));
 };
 
-const postArticle = async (articleId, requestBody) => {
+const postArticle = async (articleId, requestBody, token) => {
   return fetch(`${baseUrl}/${articleId}`, {
     method: 'POST',
     headers: {
+      Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(requestBody),

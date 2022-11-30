@@ -1,5 +1,5 @@
 import AdminLoginForm from '../components/forms/AdminLoginForm';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AdminArticleForm from '../components/forms/AdminArticleForm';
 import AdminPhotoshootForm from '../components/forms/AdminPhotoshootForm';
 
@@ -7,12 +7,11 @@ import Header from '../components/ui/Header';
 import useToken from '../hooks/useToken';
 
 const AdminPage = () => {
-  const { setToken } = useToken();
+  const { token, setToken, removeToken } = useToken();
   const [formType, setFormType] = useState('article');
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = (values) => {
-    console.log(values);
     fetch('/api/auth/token', {
       method: 'POST',
       headers: {
@@ -25,9 +24,14 @@ const AdminPage = () => {
     })
       .then((response) => response.json())
       .then((response) => setToken(response.access_token))
-      .then((token) => setLoggedIn(token != null))
-      .catch((err) => console.error(err));
+      .catch((err) => removeToken());
   };
+
+  useEffect(() => {
+    if (token && token !== 'undefined' && token !== 'null') {
+      setLoggedIn(true);
+    }
+  }, [token]);
 
   return isLoggedIn ? (
     <>

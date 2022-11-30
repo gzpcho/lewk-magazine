@@ -3,8 +3,10 @@ import articleService from '../../services/articles';
 import bucketService from '../../services/bucket';
 import Article from '../ui/Article';
 import { useState } from 'react';
+import useToken from '../../hooks/useToken';
 
 const AdminArticleForm = () => {
+  const { token } = useToken();
   const [loading, setLoading] = useState(false);
   const [previewContents, setPreviewContents] = useState({});
   const { register, handleSubmit, getValues, reset } = useForm({
@@ -28,17 +30,21 @@ const AdminArticleForm = () => {
       .replace(/[^a-zA-Z0-9 ]/g, '')
       .replace(/\s+/g, '-')
       .toLowerCase();
-    await articleService.post(articleId, {
-      title: values.title,
-      tagline: values.tagline,
-      image: uploadedImageJson,
-      author: values.author,
-      issue: {
-        number: values.issueNo,
-        url: values.issueUrl,
+    await articleService.post(
+      articleId,
+      {
+        title: values.title,
+        tagline: values.tagline,
+        image: uploadedImageJson,
+        author: values.author,
+        issue: {
+          number: values.issueNo,
+          url: values.issueUrl,
+        },
+        copy: values.copy,
       },
-      copy: values.copy,
-    });
+      token
+    );
     reset();
     setLoading(false);
   };

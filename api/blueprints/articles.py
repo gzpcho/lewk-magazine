@@ -1,6 +1,7 @@
 from flask import Blueprint, make_response, jsonify, request
 from api.models import Article
 from api.extensions import db
+from flask_jwt_extended import jwt_required
 
 bp = Blueprint("articles", __name__, url_prefix="/api")
 
@@ -19,6 +20,7 @@ def get_article(article_id):
     return make_response(jsonify(article), 200)
 
 @bp.route("article/<article_id>", methods=["POST"])
+@jwt_required()
 def post_article(article_id):
     try:
         new_article = Article(
@@ -38,6 +40,7 @@ def post_article(article_id):
     return make_response(jsonify(new_article.serialize()), 200)
 
 @bp.route("/article/<article_id>", methods=["DELETE"])
+@jwt_required()
 def delete_article(article_id):
     try:
         article = Article.query.filter_by(id=article_id).one()

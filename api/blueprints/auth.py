@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, make_response, jsonify, request
-from flask_jwt_extended import create_access_token, set_access_cookies, unset_jwt_cookies, jwt_required
+from flask_jwt_extended import create_access_token, set_access_cookies, unset_jwt_cookies
 
 bp = Blueprint("auth", __name__, url_prefix="/api")
 

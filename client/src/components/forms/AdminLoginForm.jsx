@@ -1,15 +1,10 @@
 import { useForm } from 'react-hook-form';
 
 const AdminLoginForm = ({ onSubmit }) => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
 
   return (
-    <form
-      onSubmit={() => {
-        handleSubmit(onSubmit);
-        reset();
-      }}
-    >
+    <form onSubmit={handleSubmit(onSubmit)}>
       <input
         {...register('username')}
         placeholder="Username"

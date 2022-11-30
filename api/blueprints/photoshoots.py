@@ -1,4 +1,5 @@
 from flask import Blueprint, make_response, jsonify, request
+from flask_jwt_extended import jwt_required
 from api.models import Photoshoot
 from api.extensions import db
 
@@ -16,6 +17,7 @@ def get_photoshoot(photoshoot_id):
     return make_response(jsonify(photoshoot), 200)
 
 @bp.route("/photoshoot/<photoshoot_id>", methods=["POST"])
+@jwt_required()
 def post_photoshoot(photoshoot_id):
     print("adding..")
     try:
@@ -32,6 +34,7 @@ def post_photoshoot(photoshoot_id):
     return make_response(jsonify(new_photoshoot.serialize()), 200)
 
 @bp.route("/photoshoot/<photoshoot_id>", methods=["DELETE"])
+@jwt_required()
 def delete_article(photoshoot_id):
     try:
         photoshoot = Photoshoot.query.filter_by(id=photoshoot_id).one()

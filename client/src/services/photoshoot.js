@@ -17,10 +17,11 @@ const getPhotoshoot = async (photoshootId) => {
     .catch((err) => console.error(err));
 };
 
-const postPhotoshoot = async (photoshootId, requestBody) => {
+const postPhotoshoot = async (photoshootId, requestBody, token) => {
   return fetch(`${baseUrl}/${photoshootId}`, {
     method: 'POST',
     headers: {
+      Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(requestBody),
