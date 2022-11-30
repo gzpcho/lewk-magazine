@@ -5,7 +5,7 @@ class Article(db.Model):
 
     id = db.Column(db.String(), primary_key=True)
     title = db.Column(db.String(), nullable=False)
-    tagline = db.Column(db.String(), nullable=False)
+    tagline = db.Column(db.String())
     copy = db.Column(db.String(), nullable=False)
     image_url = db.Column(db.String())
     author = db.Column(db.String())
