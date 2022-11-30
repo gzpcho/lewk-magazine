@@ -1,29 +1,29 @@
 import Navbar from '../components/Navbar';
-//import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import articleService from '../services/articles';
 import GridLayout from "../components/GridLayout";
 import Block from "../components/Block";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const ArticlesPage = () => {
-  const [gridContents, setGridContents] = useState({});
-
-  function populategrid(){
-    articleService.getAll().then((data) => {
-      data.map((article) => {
-        return <Block image_url={article.imageUrl} />
-      })
-      setGridContents(data);
-    })
+  const [gridContents, setGridContents] = useState([]);
+  const populateGridContents = () => {
+    articleService
+      .getAll()
+      .then((articles) => articles.map(one =>
+         <li key={one.metadata.articleId}> <Block size="large" src={one.imageUrl} /> </li>))
+      .then(data => setGridContents(data));
   }
-  res = populategrid();
+  useEffect(() => {
+    populateGridContents();
+  }, [])
+ console.log(gridContents);
   return (
     <>
       <Navbar />
-      {/* <GridLayout children={res}/> */}
-      
+      <GridLayout children={gridContents} />
+      <Footer />
     </>
   );
 };
 
 export default ArticlesPage;
-

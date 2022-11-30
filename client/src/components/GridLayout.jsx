@@ -1,5 +1,4 @@
-import Block from "./Block.jsx";
-import Footer from "../components/Footer";
+//import Block from "./Block.jsx";
 function GridLayout(props) {
     return(
         <div style={styles.block_container}>

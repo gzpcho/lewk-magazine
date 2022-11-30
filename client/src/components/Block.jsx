@@ -1,9 +1,11 @@
 //to be done later: get article / photoshoot pics to populate the grid template
 function Block(props) {
+    console.log(props);
+
     return(
         <div style={{...styles.block,
             ...styles[props.size]}}>
-                <img src={props.img_url} alt="image" />
+                <img src={props.src} alt="" />
         </div>
     )
 }
