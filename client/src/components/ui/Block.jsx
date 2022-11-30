@@ -1,12 +1,16 @@
 //to be done later: get article / photoshoot pics to populate the grid template
+//import { redirect } from "react-router-dom";
 function Block(props) {
   console.log(props);
-
+  const imageClick = () => {
+    console.log('Click');
+  }
   return(
       <div style={{...styles.block, ...styles[props.size]}}>
-              <img src={props.src} alt="" />
+              <img src={props.src} alt="" onClick={() => imageClick()} />
+              
       </div>
-  )
+  );
 }
 const styles = {
   block: {
@@ -15,7 +19,7 @@ const styles = {
       borderRadius: '16px',
       backgroundColor: 'blue',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
   },
   small: {
       gridRowEnd: 'span 26'
