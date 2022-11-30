@@ -1,5 +1,5 @@
-import Navbar from '../components/Navbar';
-import Footer from "../components/Footer";
+import Header from '../components/ui/Header';
+import Footer from '../components/ui/Footer';
 import articleService from '../services/articles';
 import GridLayout from "../components/GridLayout";
 import Block from "../components/Block";
@@ -19,7 +19,7 @@ const ArticlesPage = () => {
  console.log(gridContents);
   return (
     <>
-      <Navbar />
+      <Header />
       <GridLayout children={gridContents} />
       <Footer />
     </>
