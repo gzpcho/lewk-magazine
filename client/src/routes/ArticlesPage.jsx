@@ -1,8 +1,8 @@
-import Header from '../components/ui/Header';
-import Footer from '../components/ui/Footer';
+import Navbar from '../components/Navbar';
+import Footer from "../components/Footer";
 import articleService from '../services/articles';
-import GridLayout from "../layouts/GridLayout";
-import Block from "../components/ui/Block";
+import GridLayout from "../components/GridLayout";
+import Block from "../components/Block";
 import { useState, useEffect } from 'react';
 const ArticlesPage = () => {
   const [gridContents, setGridContents] = useState([]);
@@ -19,7 +19,7 @@ const ArticlesPage = () => {
  console.log(gridContents);
   return (
     <>
-      <Header />
+      <Navbar />
       <GridLayout children={gridContents} />
       <Footer />
     </>
