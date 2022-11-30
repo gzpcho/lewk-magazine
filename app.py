@@ -1,6 +1,6 @@
 from flask import Flask, send_from_directory
 from flask_cors import CORS
-from api.blueprints import articles, bucket, photoshoots
+from api.blueprints import articles, auth, bucket, photoshoots
 from api.extensions import db, jwt, cfg
 from api.data import dummy_articles, dummy_photoshoots
 
@@ -9,6 +9,7 @@ CORS(app)
 
 def register_blueprints(app):
     app.register_blueprint(articles.bp)
+    app.register_blueprint(auth.bp)
     app.register_blueprint(bucket.bp)
     app.register_blueprint(photoshoots.bp)
 
