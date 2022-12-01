@@ -16,7 +16,8 @@ const PhotoshootsPage = () => {
   useEffect(() => {
     populateGridContents();
   }, [])
- console.log(gridContents);
+ const res = photoshootService.getAll();
+ console.log(res);
   return (
     <div>
       <Header />
