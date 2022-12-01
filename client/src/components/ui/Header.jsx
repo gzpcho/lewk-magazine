@@ -4,7 +4,9 @@ import '../../styles/nav_styles.css';
 const Header = () => {
   return (
     <nav className="nav">
-      <Link to="/">LEWK</Link>
+      <Link to="/">
+      <img src="/images/newLink.png" alt="linktree logo"  />
+      </Link>
       <ul>
         <li>
           <Link to="/articles">Articles</Link>

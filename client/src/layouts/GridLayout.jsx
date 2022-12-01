@@ -18,7 +18,8 @@ const styles = {
       left: '50%',
       transform: 'translateX(-50%)',
       justifyContent: 'center',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+
   }
 }
 export default GridLayout;
