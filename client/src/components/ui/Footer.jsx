@@ -5,13 +5,13 @@ const Footer = () => {
   return (
     <footer>
       <div className="singleCol social-media-icons-white d-flex justify-content-evenly">
-        <a href="http://instagram.com">
+        <a href="http://instagram.com/lewkmagazinetx/">
           <FontAwesomeIcon icon={faInstagram} size="2x" inverse/>
         </a>
-        <a href="https://linktr.ee">
+        <a href="https://linktr.ee/Lewkmagazinetx">
           <img src="/images/linktree.png" alt="linktree logo" />
         </a>
-        <a href="http://tiktok.com">
+        <a href="http://tiktok.com/@lewkmagazine">
           <FontAwesomeIcon icon={faTiktok} size="2x" inverse/>
         </a>
       </div>
