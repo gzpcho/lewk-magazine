@@ -8,7 +8,7 @@ function Block(props) {
   return(
       <div style={{...styles.block, ...styles[props.size]}}>
               <img src={props.src} alt="" onClick={handleClick} />
-              
+
       </div>
   );
 }
@@ -22,13 +22,13 @@ const styles = {
       overflow: 'hidden',
   },
   small: {
-      gridRowEnd: 'span 26'
+    gridRowEnd: 'span 26',
   },
   medium: {
-      gridRowEnd: 'span 33'
+    gridRowEnd: 'span 33',
   },
   large: {
-      gridRowEnd: 'span 45'
-  }
-}
+    gridRowEnd: 'span 45',
+  },
+};
 export default Block;
