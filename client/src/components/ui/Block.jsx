@@ -1,13 +1,13 @@
 //to be done later: get article / photoshoot pics to populate the grid template
-//import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Block(props) {
-  console.log(props);
-  const imageClick = () => {
-    console.log('Click');
-  }
+    let navigate = useNavigate();
+    function handleClick() {
+      navigate(`/${props.x}/${props.Id}`);
+    }
   return(
       <div style={{...styles.block, ...styles[props.size]}}>
-              <img src={props.src} alt="" onClick={() => imageClick()} />
+              <img src={props.src} alt="" onClick={handleClick} />
               
       </div>
   );

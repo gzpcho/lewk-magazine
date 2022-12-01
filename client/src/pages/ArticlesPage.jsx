@@ -10,7 +10,7 @@ const ArticlesPage = () => {
     articleService
       .getAll()
       .then((articles) => articles.map(one =>
-         <li key={one.metadata.articleId}> <Block size="large" src={one.imageUrl} /> </li>))
+         <li key={one.metadata.articleId}> <Block size="large" src={one.imageUrl} x="a" Id={one.metadata.articleId} /> </li>))
       .then(data => setGridContents(data));
   }
   useEffect(() => {
