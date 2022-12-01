@@ -12,7 +12,7 @@ import HomePage from './pages/HomePage';
 import ArticlesPage from './pages/ArticlesPage';
 import AboutPage from './pages/AboutPage';
 import ArticleContentPage from './pages/ArticleContentPage';
-
+import ShootPage from './pages/ShootPage';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -33,6 +33,11 @@ const router = createBrowserRouter([
   {
     path: '/a/:articleId',
     element: <ArticleContentPage />,
+  },
+  {
+    path: '/p/:photoshootId',
+    element: <ShootPage />,
+
   },
   {
     path: '/admin',

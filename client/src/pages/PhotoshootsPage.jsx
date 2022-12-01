@@ -10,7 +10,7 @@ const PhotoshootsPage = () => {
     photoshootService
       .getAll()
       .then((shoots) => shoots.map(shoot =>
-         <li key={shoot.metadata.photoshootId}> <Block size="large" src={shoot.photoUrls[0]} /> </li>))
+         <li key={shoot.metadata.photoshootId}> <Block size="large" src={shoot.photoUrls[0]} x="p" Id={shoot.metadata.photoshootId} /> </li>))
       .then(data => setGridContents(data));
   }
   useEffect(() => {
