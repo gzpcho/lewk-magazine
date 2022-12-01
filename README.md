@@ -85,4 +85,8 @@ npm install
     - Wanted to set up tests for our API and components
 - @n0z0a
   - Likes
+    -Liked gaining experience in react for the first time
+    -Liked to see formation of something being created by a team
   - Dislikes
+    -Disliked my struggles i had with learning react + syntax
+      -it was either i got in it in 10 mins or stuck on it for a couple days
